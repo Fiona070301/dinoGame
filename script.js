@@ -1,6 +1,8 @@
 const dino = document.getElementById("dino");
 const rock = document.getElementById("rock");
 const score = document.getElementById("score");
+// Variable für den Button erstellt.
+const startButton = document.getElementById("startButton");
 
 //score.innerText = 0;
 
@@ -15,6 +17,17 @@ document.addEventListener("keypress", (event) => {
     jump();
   }
 })
+
+//EventListener erstellt, um mit dem Button das Spiel zu starten.
+startButton.addEventListener("click", () => {
+  console.log("Start button clicked");
+  startGame();
+});
+
+//Funktion hinzugefügt, um Rock-Animation und das Zählen des Scores zu starten.
+function startGame(){
+
+rock.style.animation = "rock 1.33s infinite";
 
 setInterval(() => {
   const dinoTop = parseInt(window.getComputedStyle(dino)
@@ -35,3 +48,5 @@ setInterval(() => {
     location.reload();
   }
 }, 50);
+}
+
